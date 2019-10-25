@@ -1,0 +1,26 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * PDF Download plugin for Craft CMS
+ *
+ * PdfDownloadWidget Widget Settings
+ *
+ * @author    Drible
+ * @copyright Copyright (c) 2019 Drible
+ * @link      https://www.drible.pt/
+ * @package   PdfDownload
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("driblepdfdownload\\pdfdownload\\assetbundles\\pdfdownload\\PdfDownloadAsset") %}
+
+{{ forms.textField({
+    label: 'Message',
+    instructions: 'Enter a message here.',
+    id: 'message',
+    name: 'message',
+    value: widget['message']})
+}}

@@ -1,0 +1,20 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * PDF Download plugin for Craft CMS
+ *
+ * PdfDownloadWidget Widget Body
+ *
+ * @author    Drible
+ * @copyright Copyright (c) 2019 Drible
+ * @link      https://www.drible.pt/
+ * @package   PdfDownload
+ * @since     1.0.0
+ */
+#}
+
+{% set iconUrl = view.getAssetManager().getPublishedUrl('@driblepdfdownload/pdfdownload/assetbundles/pdfdownloadwidgetwidget/dist', true) ~ '/img/PdfDownloadWidget-icon.svg' %}
+
+<img src="{{ iconUrl }}" height="64" width="64" />
+
+<p>{{ message }}</p>
