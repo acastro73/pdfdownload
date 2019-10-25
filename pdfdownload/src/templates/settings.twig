@@ -1,0 +1,26 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * PDF Download plugin for Craft CMS 3.x
+ *
+ * PDF Download Settings.twig
+ *
+ * @author    Drible
+ * @copyright Copyright (c) 2019 Drible
+ * @link      https://www.drible.pt/
+ * @package   PdfDownload
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("driblepdfdownload\\pdfdownload\\assetbundles\\pdfdownload\\PdfDownloadAsset") %}
+
+{{ forms.textField({
+    label: 'Some Field',
+    instructions: 'Enter some setting here.',
+    id: 'someAttribute',
+    name: 'someAttribute',
+    value: settings['someAttribute']})
+}}

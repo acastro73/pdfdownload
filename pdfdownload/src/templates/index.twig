@@ -1,0 +1,55 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+* PDF Download plugin for Craft CMS 3.x
+*
+* PDF Download index.twig
+*
+* @author    Drible
+* @copyright Copyright (c) 2019 Drible
+* @link      https://www.drible.pt/
+* @package   PdfDownload
+* @since     1.0.0
+*/
+#}
+
+{% extends "_layouts/cp" %}
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("driblepdfdownload\\pdfdownload\\assetbundles\\pdfdownload\\PdfDownloadAsset") %}
+{% do view.registerAssetBundle("driblepdfdownload\\pdfdownload\\assetbundles\\indexcpsection\\IndexCPSectionAsset") %}
+
+{# Link for the ? icon at the bottom of the page #}
+{% set docsUrl = "???" %}
+
+{# The title of this CP section #}
+{% set title = "Download de documentos em formato PDF" %}
+
+{# The URL to this plugin's base CP section #}
+{% set pluginCpUrl = url('pdf-download') %}
+
+{# Get a URL to an image in our AssetBundle #}
+{# set iconUrl = view.getAssetManager().getPublishedUrl('@driblepdfdownload/pdfdownload/assetbundles/indexcpsection/dist', true) ~ '/img/Index-icon.svg' #}
+
+{# Content that should appear in the page header#}
+{% set extraPageHeaderHtml %}
+<div class="buttons">
+    <a href="{{ pluginCpUrl }}" class="btn submit add icon">{{ "Click Me!"|t('pdf-download') }}</a>
+</div>
+{% endset %}
+
+{# users query #}
+{% set myUserQuery = craft.users().orderby('id desc') %}
+{% set users = myUserQuery.all() %}
+
+{# The content of the CP Section#}
+{% set content %}
+    {% for user in users %}
+        <h3>{{ user }}:&nbsp;
+            {# PDF / cédulas profissionais query #}
+            {% for block in user.curriculum %}
+                <a href="{{ block.url }}" target="_blank">{{ block }}</a>
+            {% endfor %}
+        </h3>
+    {% endfor %}
+{% endset %}

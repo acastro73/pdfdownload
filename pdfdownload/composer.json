@@ -1,0 +1,43 @@
+{
+    "name": "driblepdfdownload/pdf-download",
+    "description": "Permite fazer o download de documentos em formato PDF",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "pdf download"
+    ],
+    "support": {
+        "docs": "???",
+        "issues": "???"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Drible",
+            "homepage": "https://www.drible.pt/"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "driblepdfdownload\\pdfdownload\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "PDF Download",
+        "handle": "pdf-download",
+        "hasCpSettings": true,
+        "hasCpSection": true,
+        "changelogUrl": "???",
+        "components": {
+            "pdfDownloadService": "driblepdfdownload\\pdfdownload\\services\\PdfDownloadService"
+        },
+        "class": "driblepdfdownload\\pdfdownload\\PdfDownload"
+    }
+}
